@@ -7,8 +7,8 @@ const path = require('path');
 // Import Modules
 const {connectDB, disconnectDB} = require('./db/connect');
 const userAuthRouter = require('./routes/userAuthRouters');
+const trackRouter = require('./routes/trackRouter');
 const authenticate = require('./middlewares/authenticate');
-
 
 // Configure Env Variables.
 dotenv.config();
@@ -32,6 +32,7 @@ app.get("/", (req, res)=>{
 
 // Router
 app.use("/user/auth", userAuthRouter);
+app.use("/track", trackRouter);
 
 
 const start = async () => {
